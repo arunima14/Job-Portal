@@ -15,23 +15,23 @@ const JobCard = ({ job }) => {
                 <Card.Subtitle className='text-muted mb-2'>
                     {new Date(job.date_posted).toLocaleDateString()}
                 </Card.Subtitle>
-                <Badge variant='secondary' className='mr-2'> {job.employment_type} </Badge>
-                <Badge variant='secondary' className='mr-2'> {job.location} </Badge>
+                <Badge variant='secondary' className='ms-2'> {job.employment_type} </Badge>
+                <Badge variant='secondary' className='ms-2'> {job.location} </Badge>
             </div>
-            <img src={job.logo} alt={job.company_name} className='d-none d-md-block' height='50' />
+            {/* <img src={job.logo} alt={job.company_name} className='d-none d-md-block' height='50' /> */}
         </div>
 
         <Card.Text>
             <Button 
-                variant='primary' className='mr-2'
+                variant='primary' className='me-2'
                 onClick={() => setDetailsOpen(!detailsOpen)} >
                     {detailsOpen ? 'Hide Details' : 'View Details'}
                 </Button>
-                <Button variant='primary' className='mr-2' onClick={() => <ReactMarkdown source={job.url} /> } >Apply now</Button>
+                <Button variant='primary' className='me-2' onClick={() => window.open(job.url, '_blank') } >Apply now</Button>
         </Card.Text>       
         <Collapse in={detailsOpen}>
             <div className='mt-4' >
-                <ReactMarkdown source={job.text} />
+                <ReactMarkdown children={job.text} />
             </div>
         </Collapse>
     </Card.Body>

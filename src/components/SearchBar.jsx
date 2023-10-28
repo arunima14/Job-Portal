@@ -1,10 +1,16 @@
 import React from 'react'
-import { Form , Col} from 'react-bootstrap'
+import {Col, Row, Button} from 'react-bootstrap'
+import Form from 'react-bootstrap/Form'
+import FetchJobs from './fetchJobs';
+
+// const handleSearch = () => {
+//     const { jobs, loading, error, hasNextPage } = FetchJobs(params, page);
+//   };
 
 const SearchBar = ({ params, onParamChange}) => {
   return (
     <Form className='mb-4'>
-        <Form.Row className='align-items-end'>
+        <Row className='align-items-end'>
             <Form.Group as={Col}>
                 <Form.Label>Description</Form.Label>
                 <Form.Control onChange={onParamChange} value={params.text} name='description' type='text' />
@@ -18,7 +24,11 @@ const SearchBar = ({ params, onParamChange}) => {
             <Form.Group as={Col} xs='auto' className='ml-2'>
                 <Form.Check onChange={onParamChange} value={params.employment_type} name='employment_type' id='employment_type' label='Only fulltime' type='checkbox'  className='mb-2'/>
             </Form.Group>
-        </Form.Row>
+
+            {/* <Form.Group as={Col}>
+                <Button variant="primary" onClick={()=> {handleSearch}}>Update Search</Button>
+            </Form.Group> */}
+        </Row>
     </Form>
   )
 }

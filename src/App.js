@@ -26,8 +26,8 @@ function App() {
     <h1 className='mb-4'> Job Portal</h1>
     <SearchBar params={params} handleParamChange={handleParamChange} />
     <JobPagination page={page} setPage={setPage} hasNextPage={true} />
-      {loading && <h1>Loading...</h1>}
-      {error && <h1>Error, try refreshing!</h1>}
+      {/* {loading && <h1>Loading...</h1>}
+      {error && <h1>Error, try refreshing!</h1>} */}
       {jobs.map(job => {
         return (
           <JobCard key={job.id} job={job} />
